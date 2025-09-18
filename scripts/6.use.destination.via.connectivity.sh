@@ -1,0 +1,1 @@
+npx cds bind --exec node ./scripts/useDestinationVIAconnectivity.js

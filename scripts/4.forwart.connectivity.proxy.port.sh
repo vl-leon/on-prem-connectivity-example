@@ -1,0 +1,1 @@
+cf ssh on-prem-connectivity-example-srv -L 20003:connectivityproxy.internal.cf.eu12.hana.ondemand.com:20003

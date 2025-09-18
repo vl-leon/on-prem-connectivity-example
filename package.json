@@ -1,0 +1,40 @@
+{
+  "name": "on-prem-connectivity-example",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "bind": "bash bind.services.sh",
+    "hybrid": "npx cds bind --exec npx cds serve --profile hybrid",
+    "build": "mbt build -t gen --mtar mta.tar",
+    "deploy": "cf deploy gen/mta.tar",
+    "undeploy": "cf undeploy on-prem-connectivity-example --delete-services --delete-service-keys"
+  },
+  "cds": {
+    "requires": {
+      "OnPremService": {
+        "kind": "odata",
+        "credentials": {
+          "destination": "on-prem-dest"
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "connectivity": true,
+      "destinations": true
+    }
+  },
+  "private": true
+}

@@ -1,0 +1,1 @@
+npx cds bind --exec npx cds serve --profile hybrid

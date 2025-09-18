@@ -1,0 +1,1 @@
+npx cds bind --exec node scripts/useRemoteCDSdestination.js
